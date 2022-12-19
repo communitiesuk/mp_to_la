@@ -105,7 +105,7 @@ df_lad_pcon = (df_lad_pcon
 df_lad_pcon = (df_lad_pcon.merge(df_mp_names, left_on='PCON20NM', right_on='Constituency', how='left')
                .sort_values(by=['First name', 'Last name'])
                [['First name', 'Last name', 'PCON20CD', 'PCON20NM', 'LAD20CD', 'LAD20NM']]
-               .replace(restructured_names_2023)
+               .assign(LAD20NM=lambda x: x.LAD20NM.replace(restructured_names_2023))
                .replace(restructured_ons_codes_2023)
                )
 
